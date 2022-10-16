@@ -40,9 +40,9 @@ interface IEndpoints {
                 }
         };
 
-};
+}
 
-const baseUrl: string = "https://thawany.me/";
+const baseUrl = "https://thawany.me/";
 function makeEndpoint(route: string): string {
         return `${baseUrl}${route}`
 }
