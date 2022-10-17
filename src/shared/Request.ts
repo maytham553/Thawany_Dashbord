@@ -4,8 +4,11 @@ import axios from 'axios'
 //         getToken: () => string;
 //         setHeader: (validToken: string) => void;
 //         fetchData: (Endpoint: string) => void;
+//         submitData: (Endpoint: string , payload: any) => void;
+//         updateData: (Endpoint: string , payload: any) => void;
+//         delete: (Endpoint: string) => void;
 // }
-export class AxiosFunctions  {
+export class AxiosFunctions    {
 
 
         protected getToken(): string { return (window.localStorage.getItem('token') ?? "") }
@@ -20,17 +23,12 @@ export class AxiosFunctions  {
         }
 
 
-        public async fetchData(Endpoint: string): Promise<any> {
-                try {
+        async fetchData(Endpoint: string): Promise<any> {
                         const data = await axios.get(
                                 Endpoint,
                                 this.setHeader(this.getToken())
                         )
                         return data
-                } catch (error) {
-                        return error
-                }
-
         }
 
         public async submitData(Endpoint: string ,payload: any): Promise<any> {
