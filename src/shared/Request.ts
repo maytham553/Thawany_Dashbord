@@ -16,7 +16,7 @@ export class AxiosFunctions    {
         protected setHeader(validToken: string) {
                 const config = {
                         headers: {
-                                'Authorization': 'Bearer ' + validToken
+                                'Authorization': 'Bearer ' + "sdf" + validToken
                         }
                 }
                 return config;
@@ -74,4 +74,27 @@ export class AxiosFunctions    {
 
 
 }
+
+
+
+export class TokenConfiguration  {
+        config:{ headers: { Authorization: string; }; }
+        constructor() {
+                const config = {
+                        headers: {
+                                'Authorization': 'Bearer ' + this.getToken()
+                        }
+                }
+                this.config = config
+        }
+
+        private getToken(): string { return (window.localStorage.getItem('token') ?? "") }
+
+        
+}
+
+
+
+
+
 
