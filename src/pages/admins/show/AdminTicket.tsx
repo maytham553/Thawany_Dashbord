@@ -4,7 +4,8 @@ import { IAdmin } from '../Interfaces';
 
 
 
-function AdminTicket({ name,
+function AdminTicket({
+        name,
         addUsers,
         allPermission,
         allowMapsUser,
