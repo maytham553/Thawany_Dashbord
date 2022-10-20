@@ -1,5 +1,7 @@
 export interface IAdmin {
-        id?: string
+        id?: string;
+        password: string;
+        phone: string;
         name: string;
         addUsers: boolean;
         allPermission: boolean;
@@ -7,8 +9,7 @@ export interface IAdmin {
         allowNotification: boolean;
         allowThawanyCash: boolean;
         userAdvert: boolean;
-        password: string;
-        phone: string;
+       
 }
 
 export interface IStatus {
@@ -16,16 +17,4 @@ export interface IStatus {
         error: boolean;
         success: boolean;
         errorMessage: string;
-}
-
-export interface IAdminForm {
-        name: string,
-        password: string,
-        phone: string,
-        addUsers: boolean,
-        allPermission: boolean,
-        allowMapsUser: boolean,
-        allowNotification: boolean,
-        allowThawanyCash: boolean,
-        userAdvert: boolean,
 }

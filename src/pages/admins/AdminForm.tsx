@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { IAdminForm } from "./Interfaces";
+import { IAdmin } from "./Interfaces";
 
 interface Props {
-        values: IAdminForm,
-        setValues: Dispatch<SetStateAction<IAdminForm>>
+        values: IAdmin,
+        setValues: Dispatch<SetStateAction<IAdmin>>
         submit: () => void
 }
 function AdminForm(props: Props) {
