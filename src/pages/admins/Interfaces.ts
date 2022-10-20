@@ -1,5 +1,5 @@
 export interface IAdmin {
-        id?:string
+        id?: string
         name: string;
         addUsers: boolean;
         allPermission: boolean;
@@ -16,4 +16,16 @@ export interface IStatus {
         error: boolean;
         success: boolean;
         errorMessage: string;
+}
+
+export interface IAdminForm {
+        name: string,
+        password: string,
+        phone: string,
+        addUsers: boolean,
+        allPermission: boolean,
+        allowMapsUser: boolean,
+        allowNotification: boolean,
+        allowThawanyCash: boolean,
+        userAdvert: boolean,
 }
