@@ -2,16 +2,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Endpoint } from '../../../shared/Endpoint';
 import { TokenConfiguration } from '../../../shared/Request';
-import AdminForm from '../AdminForm';
-import { IAdmin } from '../Interfaces';
+import AdminForm from '../shared/AdminForm';
+import { IAdmin } from '../shared/Interfaces';
 
-interface Props  {
+interface Props {
         id: string;
 }
 function EditAdmin(props: Props) {
 
         const defaultAdminValues: IAdmin = {
-                id:props.id,
+                id: props.id,
                 name: "",
                 password: "",
                 phone: "",
@@ -26,23 +26,23 @@ function EditAdmin(props: Props) {
                 defaultAdminValues
         );
 
-        
+
         const getAdmin = async () => {
                 try {
                         const data = await axios.get(
-                                Endpoint.admins.put(AdminFormValues.id||""),
+                                Endpoint.admins.put(AdminFormValues.id || ""),
                                 new TokenConfiguration().config
                         )
                         setAdminFormValues(data.data.data)
                 } catch (error) {
-                        AdminFormValues.id==="" ?alert("Admin Id not Exist"):
-                        alert(error)
+                        AdminFormValues.id === "" ? alert("Admin Id not Exist") :
+                                alert(error)
                 }
         }
         const submit = async () => {
                 try {
                         const data = await axios.put(
-                                Endpoint.admins.put(AdminFormValues.id||""),
+                                Endpoint.admins.put(AdminFormValues.id || ""),
                                 AdminFormValues,
                                 new TokenConfiguration().config
                         )
@@ -54,7 +54,7 @@ function EditAdmin(props: Props) {
 
         useEffect(() => {
                 getAdmin()
-        },[] );
+        }, []);
 
         return <>
                 <AdminForm values={AdminFormValues}

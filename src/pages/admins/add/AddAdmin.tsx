@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Endpoint } from '../../../shared/Endpoint';
 import { TokenConfiguration } from '../../../shared/Request';
-import AdminForm from '../AdminForm';
-import { IAdmin } from '../Interfaces';
+import AdminForm from '../shared/AdminForm';
+import { IAdmin } from '../shared/Interfaces';
 
 function AddAdmin() {
 
@@ -44,6 +44,5 @@ function AddAdmin() {
                 />
         </>
 }
-
 
 export default AddAdmin

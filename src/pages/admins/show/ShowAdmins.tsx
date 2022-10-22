@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IAdmin, IStatus } from '../Interfaces';
+import { IAdmin, IStatus } from '../shared/Interfaces';
 import { Endpoint } from '../../../shared/Endpoint';
 import { AxiosFunctions } from '../../../shared/Request';
 import AdminTicket from './AdminTicket';

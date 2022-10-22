@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IAdmin } from '../Interfaces';
+import { IAdmin } from '../shared/Interfaces';
 
 
 

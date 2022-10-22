@@ -8,8 +8,7 @@ export interface IAdmin {
         allowMapsUser: boolean;
         allowNotification: boolean;
         allowThawanyCash: boolean;
-        userAdvert: boolean;
-       
+        userAdvert: boolean;  
 }
 
 export interface IStatus {

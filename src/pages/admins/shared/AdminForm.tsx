@@ -16,11 +16,10 @@ function AdminForm(props: Props) {
                 setValues({ ...values, [e.target.name]: e.target.checked })
         }
 
-
         return <>
                 <div>
                         <label htmlFor="name">name</label>
-                        <input type="text" name="name" onChange={textHandler} value={values.name} /><br />
+                        <input type="text" name="name" onChange={textHandler} /><br />
                         <label htmlFor="password">password</label>
                         <input type="text" name="password" onChange={textHandler} value={values.password} /><br />
                         <label htmlFor="phone">phone</label>
