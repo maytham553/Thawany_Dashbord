@@ -46,7 +46,6 @@ function ShowAdmins() {
 
         if (status.loading) return <div>loading</div>
         if (status.error) return <div>{status.errorMessage}</div>
-        console.log(admins)
         return <div>
                 {admins.map(admin => <AdminTicket key={admin.name}
                         name={admin.name}

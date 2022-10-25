@@ -17,7 +17,7 @@ function AdminTicket({
 }: IAdmin) {
         return <div>
                 <span>{name}</span>
-                <span>{String(addUsers)}</span>
+                <span>{addUsers}</span>
                 <span>{allPermission}</span>
                 <span>{allowMapsUser}</span>
                 <span>{allowNotification}</span>
