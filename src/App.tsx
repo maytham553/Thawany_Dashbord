@@ -1,11 +1,10 @@
 import React from 'react';
-import AdminsContainer from './pages/admins/AdminsContainer';
-import ShowAdmins from './pages/admins/show/ShowAdmins';
+import AdminRoutes from './shared/AdminRoutes';
 
 function App() {
   return (
     <div className="App">
-      <ShowAdmins/>
+     < AdminRoutes/>
     </div>
   );
 }
