@@ -3,15 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { Endpoint } from '../../../shared/Endpoint';
 import { TokenConfiguration } from '../../../shared/Request';
 import AdminForm from '../shared/AdminForm';
-import { IAdmin } from '../shared/Interfaces';
+import { IAdmin, IStatus } from '../shared/Interfaces';
+import { useParams } from "react-router-dom";
 
 interface Props {
-        id: string;
+        id?: string;
 }
 function EditAdmin(props: Props) {
-
+        const { id} = useParams();
         const defaultAdminValues: IAdmin = {
-                id: props.id,
+                id: props.id || id,
                 name: "",
                 password: "",
                 phone: "",
@@ -25,6 +26,23 @@ function EditAdmin(props: Props) {
         const [AdminFormValues, setAdminFormValues] = useState<IAdmin>(
                 defaultAdminValues
         );
+        const [LoadStatus, setLoadStatus] = useState<IStatus>(
+                {
+                        loading: true,
+                        error: false,
+                        success: false,
+                        errorMessage: ""
+                }
+        );
+
+        // const [SubmitStatus, setSubmitStatus] = useState<IStatus>(
+        //         {
+        //                 loading: true,
+        //                 error: false,
+        //                 success: false,
+        //                 errorMessage: ""
+        //         }
+        // );
 
 
         const getAdmin = async () => {
@@ -33,13 +51,14 @@ function EditAdmin(props: Props) {
                                 Endpoint.admins.put(AdminFormValues.id || ""),
                                 new TokenConfiguration().config
                         )
+                        setLoadStatus({ loading: false, error: false, success: true, errorMessage: "" })
                         setAdminFormValues(data.data.data)
                 } catch (error) {
-                        AdminFormValues.id === "" ? alert("Admin Id not Exist") :
-                                alert(error)
+                        setLoadStatus({ loading: false, error: true, success: false, errorMessage:String(error) })
                 }
         }
-        const submit = async () => {
+        const submit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+                e.preventDefault();
                 try {
                         const data = await axios.put(
                                 Endpoint.admins.put(AdminFormValues.id || ""),
@@ -56,6 +75,8 @@ function EditAdmin(props: Props) {
                 getAdmin()
         }, []);
 
+        if (LoadStatus.loading) return <div>loading</div>
+        if (LoadStatus.error) return <div>{LoadStatus.errorMessage}</div>
         return <>
                 <AdminForm values={AdminFormValues}
                         setValues={setAdminFormValues}
@@ -66,3 +87,5 @@ function EditAdmin(props: Props) {
 
 
 export default EditAdmin
+
+
