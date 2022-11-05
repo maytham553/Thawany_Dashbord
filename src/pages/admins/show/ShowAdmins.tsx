@@ -3,11 +3,12 @@ import { IAdmin, IStatus } from '../shared/Interfaces';
 import { Endpoint } from '../../../shared/Endpoint';
 import { AxiosFunctions } from '../../../shared/Request';
 import AdminTicket from './AdminTicket';
+import { GridContainer, GridRow } from '../../../healperComponent/tailwindComponent/GridComponents';
 
 function ShowAdmins() {
         const [admins, setAdmins] = useState<[IAdmin]>(
                 [{
-                        id:"",
+                        id: "",
                         name: "",
                         addUsers: false,
                         allPermission: false,
@@ -42,12 +43,13 @@ function ShowAdmins() {
         }
         useEffect(() => {
                 getAdmins()
-        },[] );
+        }, []);
 
         if (status.loading) return <div>loading</div>
         if (status.error) return <div>{status.errorMessage}</div>
-        return <div>
-                {admins.map(admin => <AdminTicket key={admin.name}
+        return <div className={"grid grid-cols-3 gap-4 m-10 p-5"} >
+                {admins.map((admin, index) => <AdminTicket key={index}
+                        id={admin.id}
                         name={admin.name}
                         addUsers={admin.addUsers}
                         allPermission={admin.allPermission}
@@ -57,7 +59,8 @@ function ShowAdmins() {
                         userAdvert={admin.userAdvert}
                         password={admin.password}
                         phone={admin.phone}
-                />)}
+                />
+                )}
         </div>
 }
 
