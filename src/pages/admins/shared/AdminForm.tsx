@@ -6,7 +6,7 @@ import { IAdmin } from "./Interfaces";
 interface Props {
         values: IAdmin,
         setValues: Dispatch<SetStateAction<IAdmin>>
-        submit: () => void
+        submit: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 function AdminForm(props: Props) {
         const { values, setValues, submit } = props
@@ -17,8 +17,6 @@ function AdminForm(props: Props) {
         const checkboxHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
                 setValues({ ...values, [e.target.id]: e.target.checked })
         }
-        const inputTextClasses =  "mr-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        const inputCheckboxClasses = "w-4 h-4 text-gray-700  rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
         return <>
                 <Form>
                         <TextInput name={"name"} label={"Name"}  onChange={textHandler} value={values.name} placeholder="Name"/>
