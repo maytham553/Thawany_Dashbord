@@ -55,7 +55,6 @@ function AdminsContainer() {
                 <button onClick={() => { getAdmins(); console.log(Admins); }} > getData</button>
                 <button onClick={async () => { console.log(await axiosFunctions.fetchData(Endpoint.admins.getById("a808d199-6bd6-4a39-b13d-77ba4931d4c9"))); }} > get one item</button>
                 <button onClick={async () => { console.log(await axiosFunctions.delete(Endpoint.admins.delete("a808d199-6bd6-4a39-b13d-77ba4931d4c9"))); }} > delete item</button>
-
         </div>
 }
 

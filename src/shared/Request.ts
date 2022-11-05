@@ -1,13 +1,6 @@
 import axios from 'axios'
 
-// interface IAxiosFunctions {
-//         getToken: () => string;
-//         setHeader: (validToken: string) => void;
-//         fetchData: (Endpoint: string) => void;
-//         submitData: (Endpoint: string , payload: any) => void;
-//         updateData: (Endpoint: string , payload: any) => void;
-//         delete: (Endpoint: string) => void;
-// }
+
 export class AxiosFunctions    {
 
 
@@ -16,7 +9,7 @@ export class AxiosFunctions    {
         protected setHeader(validToken: string) {
                 const config = {
                         headers: {
-                                'Authorization': 'Bearer ' + "sdf" + validToken
+                                'Authorization': 'bearer '+ validToken
                         }
                 }
                 return config;
@@ -82,7 +75,7 @@ export class TokenConfiguration  {
         constructor() {
                 const config = {
                         headers: {
-                                'Authorization': 'Bearer ' + this.getToken()
+                                'Authorization': 'bearer ' + this.getToken()
                         }
                 }
                 this.config = config

@@ -4,12 +4,10 @@ import { taillwindClasses } from './TaillWindClasses';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
     label: string;
-    className?:string
 }
 
 
 interface Form extends FormHTMLAttributes<HTMLFormElement> {
-  
     className?:string
 }
 
@@ -40,8 +38,6 @@ export const Form: FC<Form> = ({ children ,  ...rest }) => {
         <form className={taillwindClasses.form}>
             {children}
         </form>
-        
-
     );
 };
 

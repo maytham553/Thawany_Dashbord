@@ -23,7 +23,8 @@ function AddAdmin() {
         );
 
 
-        const submit = async () => {
+        const submit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+                e.preventDefault();
                 try {
                         const data = await axios.post(
                                 Endpoint.admins.post,
@@ -31,7 +32,6 @@ function AddAdmin() {
                                 new TokenConfiguration().config
                         )
                         alert("succes")
-                        setAdminFormValues(defaultAdminValues)
                 } catch (error) {
                         alert(error)
                 }
