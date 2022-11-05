@@ -3,7 +3,6 @@ import { IAdmin, IStatus } from '../shared/Interfaces';
 import { Endpoint } from '../../../shared/Endpoint';
 import { AxiosFunctions } from '../../../shared/Request';
 import AdminTicket from './AdminTicket';
-import { GridContainer, GridRow } from '../../../healperComponent/tailwindComponent/GridComponents';
 
 function ShowAdmins() {
         const [admins, setAdmins] = useState<[IAdmin]>(

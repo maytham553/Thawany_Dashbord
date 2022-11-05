@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { GridContainer, GridRow } from '../../../healperComponent/tailwindComponent/GridComponents';
 import { IAdmin } from '../shared/Interfaces';
 import { Link } from "react-router-dom";
 
@@ -42,9 +41,9 @@ function AdminTicket({
                         Permissions
                 </div>
                 <div>
-                        {addUsers && "Add User ,"} {allPermission && "All Permisions ," } {allowMapsUser && "Allow Maps Users ,"} {allowNotification && "All Notification ,"} {allowThawanyCash && "Allow Thawany Cash ," } {userAdvert && "User Advert"}
+                        {addUsers && "Add User ,"} {allPermission && "All Permisions ,"} {allowMapsUser && "Allow Maps Users ,"} {allowNotification && "All Notification ,"} {allowThawanyCash && "Allow Thawany Cash ,"} {userAdvert && "User Advert"}
                 </div>
-                <Link to={{pathname:"/EditAdmin/" + id }}>Edit</Link>
+                <Link to={{ pathname: "/EditAdmin/" + id }}>Edit</Link>
         </div>
 }
 
