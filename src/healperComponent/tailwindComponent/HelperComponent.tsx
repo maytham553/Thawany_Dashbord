@@ -6,3 +6,7 @@ interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const PrimaryButton: FC<Button> = ({ text, className = " ", ...rest }) => {
     return (<button   {...rest} className={taillwindClasses.button + " " + className}>{text} </button>);
 };
+
+export const DangerButton: FC<Button> = ({ text, className = " ", ...rest }) => {
+    return (<button   {...rest} className={taillwindClasses.deleteButton + " " + className}>{text} </button>);
+};
