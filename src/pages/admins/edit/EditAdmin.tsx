@@ -3,15 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { Endpoint } from '../../../shared/Endpoint';
 import { TokenConfiguration } from '../../../shared/Request';
 import AdminForm from '../shared/AdminForm';
-import { IAdmin, IStatus } from '../shared/Interfaces';
+import { Admin } from '../shared/Interfaces';
 import { useParams } from "react-router-dom";
+import { Status } from '../../../shared/Interfaces';
 
 interface Props {
         id?: string;
 }
 function EditAdmin(props: Props) {
         const { id} = useParams();
-        const defaultAdminValues: IAdmin = {
+        const defaultAdminValues: Admin = {
                 id: props.id || id,
                 name: "",
                 password: "",
@@ -23,10 +24,10 @@ function EditAdmin(props: Props) {
                 allowThawanyCash: false,
                 userAdvert: false,
         }
-        const [AdminFormValues, setAdminFormValues] = useState<IAdmin>(
+        const [AdminFormValues, setAdminFormValues] = useState<Admin>(
                 defaultAdminValues
         );
-        const [LoadStatus, setLoadStatus] = useState<IStatus>(
+        const [LoadStatus, setLoadStatus] = useState<Status>(
                 {
                         loading: true,
                         error: false,

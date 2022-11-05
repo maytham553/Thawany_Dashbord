@@ -1,4 +1,4 @@
-export interface IAdmin {
+export interface Admin {
         id?: string;
         password: string;
         phone: string;
@@ -9,11 +9,4 @@ export interface IAdmin {
         allowNotification: boolean;
         allowThawanyCash: boolean;
         userAdvert: boolean;  
-}
-
-export interface IStatus {
-        loading: boolean;
-        error: boolean;
-        success: boolean;
-        errorMessage: string;
 }

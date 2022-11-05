@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { IAdmin, IStatus } from '../shared/Interfaces';
+import { Admin } from '../shared/Interfaces';
 import { Endpoint } from '../../../shared/Endpoint';
 import { AxiosFunctions } from '../../../shared/Request';
 import AdminTicket from './AdminTicket';
+import { Status } from '../../../shared/Interfaces';
 
 function ShowAdmins() {
-        const [admins, setAdmins] = useState<[IAdmin]>(
+        const [admins, setAdmins] = useState<[Admin]>(
                 [{
                         id: "",
                         name: "",
@@ -19,7 +20,7 @@ function ShowAdmins() {
                         phone: "",
                 }]
         );
-        const [status, setStatus] = useState<IStatus>(
+        const [status, setStatus] = useState<Status>(
                 {
                         loading: true,
                         error: false,

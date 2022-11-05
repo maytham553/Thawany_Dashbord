@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { Endpoint } from '../../../shared/Endpoint';
 import { TokenConfiguration } from '../../../shared/Request';
 import AdminForm from '../shared/AdminForm';
-import { IAdmin } from '../shared/Interfaces';
+import { Admin } from '../shared/Interfaces';
 
 function AddAdmin() {
 
-        const defaultAdminValues: IAdmin = {
+        const defaultAdminValues: Admin = {
                 name: "",
                 password: "",
                 phone: "",
@@ -18,7 +18,7 @@ function AddAdmin() {
                 allowThawanyCash: false,
                 userAdvert: false,
         }
-        const [AdminFormValues, setAdminFormValues] = useState<IAdmin>(
+        const [AdminFormValues, setAdminFormValues] = useState<Admin>(
                 defaultAdminValues
         );
 

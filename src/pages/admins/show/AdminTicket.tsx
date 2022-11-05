@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IAdmin } from '../shared/Interfaces';
+import { Admin } from '../shared/Interfaces';
 import { Link } from "react-router-dom";
 
 
@@ -16,7 +16,7 @@ function AdminTicket({
         userAdvert,
         password,
         phone,
-}: IAdmin) {
+}: Admin) {
 
         return <div className="grid grid-cols-2 gap-4  p-5 rounded-lg overflow-hidden shadow-lg " >
                 {/* <div className="bg-white rounded-lg pl-2">

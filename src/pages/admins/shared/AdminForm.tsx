@@ -1,11 +1,11 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { CheckboxInput, Form, TextInput } from "../../../healperComponent/tailwindComponent/FormComponent";
 import { PrimaryButton } from "../../../healperComponent/tailwindComponent/HelperComponent";
-import { IAdmin } from "./Interfaces";
+import { Admin } from "./Interfaces";
 
 interface Props {
-        values: IAdmin,
-        setValues: Dispatch<SetStateAction<IAdmin>>
+        values: Admin,
+        setValues: Dispatch<SetStateAction<Admin>>
         submit: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 function AdminForm(props: Props) {
