@@ -4,3 +4,10 @@ export interface Status {
     success: boolean;
     errorMessage: string;
 }
+
+export interface Pages {
+    thisPage: number,
+    prevPage: number,
+    nextPage: number,
+    totalPages: number
+}
