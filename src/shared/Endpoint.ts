@@ -17,7 +17,7 @@ interface IEndpoints {
                 post: string;
         };
         users: {
-                get: string;
+                get: (pageNumber: number) => string;
                 post: string;
                 put: string;
                 getById: (id: string) => string;
@@ -51,6 +51,10 @@ function makeEndpointWithData(route: string, date: any): string {
         return `${baseUrl}${route}${"/"}${date}`
 }
 
+function makeEndpointWithPage(route: string, pageNumber: number): string {
+        return `${baseUrl}${route}${"?pageNumber="}${pageNumber}`
+}
+
 
 export const Endpoint: IEndpoints = {
         admins: {
@@ -71,7 +75,7 @@ export const Endpoint: IEndpoints = {
                 post: makeEndpoint("File")
         },
         users: {
-                get: makeEndpoint("User"),
+                get: (pageNumber:number) =>  makeEndpointWithPage("User" ,pageNumber ),
                 post: makeEndpoint("User"),
                 put: makeEndpoint("User"),
                 getById: (id: string) => makeEndpointWithData("User", id),
