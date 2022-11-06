@@ -1,15 +1,15 @@
 export interface User {
-    id?: string;
+    id: string;
     name: string;
     phone: string;
-    image: string;
+    image?: string;
     birthdate: string;
     countryCode: string;
     gender: string;
-    tagId?: string;
+    tagId: string;
     tagScanned?: number;
-    views?: number;
-    visibility?: boolean;
+    views: number;
+    visibility: boolean;
     method: string,
     token?: string;
 }

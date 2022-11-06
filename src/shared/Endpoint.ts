@@ -19,7 +19,7 @@ interface IEndpoints {
         users: {
                 get: (pageNumber: number) => string;
                 post: string;
-                put: string;
+                put:  (id: string) => string;
                 getById: (id: string) => string;
                 delete: (id: string) => string;
                 getOtp: string;
@@ -77,7 +77,7 @@ export const Endpoint: IEndpoints = {
         users: {
                 get: (pageNumber:number) =>  makeEndpointWithPage("User" ,pageNumber ),
                 post: makeEndpoint("User"),
-                put: makeEndpoint("User"),
+                put: (id: string) => makeEndpointWithData("User", id),
                 getById: (id: string) => makeEndpointWithData("User", id),
                 delete: (id: string) => makeEndpointWithData("User", id),
                 getOtp: makeEndpoint("User/Otp"),

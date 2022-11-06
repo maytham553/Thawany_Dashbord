@@ -4,6 +4,8 @@ import UserRow from "./UserRow"
 
 interface Props {
     Users: [User]
+    onDelete: React.MouseEventHandler<HTMLButtonElement>;
+    onEdit: React.MouseEventHandler<HTMLButtonElement>;
 }
 function UserColumn(props: Props) {
     return <><thead className="bg-white border-b">
@@ -24,7 +26,7 @@ function UserColumn(props: Props) {
         </tr>
     </thead>
         {props.Users.map(user => {
-            return <UserRow User={user} key={user.id} />
+            return <UserRow User={user} key={user.id} onDelete={props.onDelete} onEdit={props.onEdit} />
         })}
 
     </>

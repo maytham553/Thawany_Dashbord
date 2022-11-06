@@ -4,11 +4,9 @@ import { DangerButton, PrimaryButton } from "../../../healperComponent/tailwindC
 
 interface Props {
     User: User
+    onDelete: React.MouseEventHandler<HTMLButtonElement>;
+    onEdit: React.MouseEventHandler<HTMLButtonElement>;
 }
-
-
-
-
 
 function UserRow(props: Props) {
     const { User } = props;
@@ -54,10 +52,10 @@ function UserRow(props: Props) {
                 {User.token}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <PrimaryButton className="btn" text={"Edit"}/>
+                <PrimaryButton id={User.id} className="btn" text={"Edit"} onClick={props.onEdit} />
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <DangerButton className="btn" text={"Delete"}/>
+                <DangerButton id={User.id} className="btn" text={"Delete"} onClick={props.onDelete} />
             </td>
         </tr>
 
