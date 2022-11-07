@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import AddAdmin from "../pages/admins/add/AddAdmin";
 import EditAdmin from "../pages/admins/edit/EditAdmin";
 import ShowAdmins from "../pages/admins/show/ShowAdmins";
-import ShowUsersContainer from "../pages/Users/Show/ShowUsersContainer";
+import AdvContainer from "../pages/Advertisement/AdvContainer";
+import ShowUsersContainer from "../pages/Users/UsersContainer";
 
 
 class AdminRoutes extends React.Component {
@@ -16,6 +17,7 @@ class AdminRoutes extends React.Component {
                 <Route path="EditAdmin/:id" element={<EditAdmin/>}/>
                 <Route path="AddAdmin" element={<AddAdmin />} />
                 <Route path="ShowUsers" element={<ShowUsersContainer />} />
+                <Route path="Advs" element={<AdvContainer />} />
             </Routes>
         );
     }
