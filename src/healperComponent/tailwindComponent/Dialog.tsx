@@ -3,7 +3,6 @@ import { DangerButton, PrimaryButton } from "./HelperComponent";
 
 interface Props {
     onClose: MouseEventHandler<HTMLButtonElement>;
-    onConfirm: MouseEventHandler<HTMLButtonElement>;
     children: React.ReactNode;
     title: string;
 }
