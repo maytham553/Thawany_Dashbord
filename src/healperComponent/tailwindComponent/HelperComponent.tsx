@@ -8,5 +8,9 @@ export const PrimaryButton: FC<Button> = ({ text, className = " ", ...rest }) =>
 };
 
 export const DangerButton: FC<Button> = ({ text, className = " ", ...rest }) => {
-    return (<button   {...rest} className={taillwindClasses.deleteButton + " " + className}>{text} </button>);
+    return (<button   {...rest} className={taillwindClasses.DangerButton + " " + className}>{text} </button>);
+};
+
+export const FloatingButton: FC<Button> = ({ text, className = " ", ...rest }) => {
+    return (<button   {...rest} className={taillwindClasses.floatingButton + " " + className}>{text} </button>);
 };
