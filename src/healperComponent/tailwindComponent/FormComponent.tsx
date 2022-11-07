@@ -79,14 +79,15 @@ export const Form: FC<Form> = ({ children, ...rest }) => {
 
 
 
-// export const ImageInput: FC<InputProps> = ({ name, label, className = " ", ...rest }) => {
-//     return (
-//         <div className="mb-4" >
-//             <label htmlFor={name} className={taillwindClasses.labelText + " " + className}>{label}</label>
-//             <input type="image"  alt="Submit" width="48" height="48" id={name}  {...rest} className={taillwindClasses.inputText} /><br />
-//         </div>
-//     );
-// };
+export const ImageInput: FC<InputProps> = ({ name, label, className = " ", ...rest }) => {
+    return (
+        <div className="mb-4" >
+            <label htmlFor={name} className={taillwindClasses.labelText + " " + className}>{label}</label>
+            <input type="file" accept="image/*" alt="Submit" width="48" height="48" id={name}  {...rest} className={taillwindClasses.inputText} />
+            <br />
+        </div>
+    );
+};
 
 
 
