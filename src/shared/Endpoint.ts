@@ -7,7 +7,7 @@ interface IEndpoints {
                 delete: (id: string) => string;
         };
         advs: {
-                get: string;
+                get: (pageNumber: number) => string;
                 post: string;
                 put: (id: string) => string;
                 getById: (id: string) => string;
@@ -65,7 +65,7 @@ export const Endpoint: IEndpoints = {
                 delete: (id: string) => makeEndpointWithData("Admin", id)
         },
         advs: {
-                get: makeEndpoint("Adv"),
+                get: (pageNumber:number) =>  makeEndpointWithPage("Adv" ,pageNumber ),
                 post: makeEndpoint("Adv"),
                 put: (id: string) => makeEndpointWithData("Adv", id),
                 getById: (id: string) => makeEndpointWithData("Adv", id),

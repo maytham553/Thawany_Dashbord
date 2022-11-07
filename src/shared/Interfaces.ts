@@ -11,3 +11,11 @@ export interface Pages {
     nextPage: number,
     totalPages: number
 }
+
+
+export interface Dilog {
+    openDelete: boolean;
+    openEdit: boolean;
+    openAdd?: boolean;
+    Id: string;
+}

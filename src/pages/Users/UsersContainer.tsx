@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Endpoint } from '../../shared/Endpoint';
 import { AxiosFunctions, TokenConfiguration } from '../../shared/Request';
-import { Pages, Status } from '../../shared/Interfaces';
+import { Dilog, Pages, Status } from '../../shared/Interfaces';
 import { User } from './Shared/Interfaces';
 import axios from 'axios';
 import UserColumn from './Show/UserColumn';
@@ -11,11 +11,7 @@ import UserForm from './Shared/UserForm';
 import Pagination from '../../healperComponent/tailwindComponent/Pagination';
 
 
-interface Dilog {
-        openDelete: boolean;
-        openEdit: boolean;
-        userId: string;
-}
+
 function ShowUsersContainer() {
 
         // Component State
@@ -53,7 +49,6 @@ function ShowUsersContainer() {
                 }
 
         );
-        const [selectedImage, setSelectedImage] = useState(null);
 
         const [status, setStatus] = useState<Status>(
                 {
@@ -76,7 +71,7 @@ function ShowUsersContainer() {
                 {
                         openDelete: false,
                         openEdit: false,
-                        userId: "",
+                        Id: "",
                 }
         );
 
@@ -104,39 +99,29 @@ function ShowUsersContainer() {
                         const data = (await axios.get(Endpoint.users.get(pages.thisPage), new TokenConfiguration().config))
                         setStatus({ loading: false, error: false, success: true, errorMessage: "" })
                         setUsers(data.data.data);
-                        console.log(data.data.data)
-                } catch (error) {
-                        setStatus({ loading: false, error: true, success: false, errorMessage: String(error) })
-                        setPages({ totalPages: 0, prevPage: 0, nextPage: 0, thisPage: 0 });
-                }
-        }
-        const getUsersFirstTime = async () => {
-                try {
-                        const data = (await axios.get(Endpoint.users.get(pages.thisPage), new TokenConfiguration().config))
-                        setStatus({ loading: false, error: false, success: true, errorMessage: "" })
-                        setUsers(data.data.data);
-                        setPages({ ...pages, totalPages: data.data.pagesCount });
-                } catch (error) {
-                        setStatus({ loading: false, error: true, success: false, errorMessage: String(error) })
-                        setPages({ totalPages: 0, prevPage: 0, nextPage: 0, thisPage: 0 });
-                }
-        }
+                        (pages.totalPages === 1) && setPages({ ...pages, totalPages: data.data.pagesCount })
 
+                } catch (error) {
+                        setStatus({ loading: false, error: true, success: false, errorMessage: String(error) })
+                        setPages({ totalPages: 0, prevPage: 0, nextPage: 0, thisPage: 0 });
+                }
+        }
+    
 
 
         //Close popup window
         const onClose = () => {
-                setDilog({ openDelete: false, openEdit: false, userId: '' });
+                setDilog({ openDelete: false, openEdit: false, Id: '' });
         }
 
         //Delete User
         const openDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-                setDilog({ openDelete: true, openEdit: false, userId: (e.target as Element).id });
+                setDilog({ openDelete: true, openEdit: false, Id: (e.target as Element).id });
         }
         const onDelete = async () => {
                 try {
-                        const data = (await axios.delete(Endpoint.users.delete(dilog.userId), new TokenConfiguration().config));
-                        const users: any = Users.filter(user => user.id != dilog.userId);
+                        const data = (await axios.delete(Endpoint.users.delete(dilog.Id), new TokenConfiguration().config));
+                        const users: any = Users.filter(user => user.id != dilog.Id);
                         setUsers(users)
                         alert("user deleted successfully")
                 } catch (error) {
@@ -152,7 +137,7 @@ function ShowUsersContainer() {
                         return el.id === id
                 });
                 setUser(userId[0])
-                setDilog({ openDelete: false, openEdit: true, userId: id });
+                setDilog({ openDelete: false, openEdit: true, Id: id });
         }
 
         const submitEdit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -163,7 +148,7 @@ function ShowUsersContainer() {
                                 user,
                                 new TokenConfiguration().config
                         )
-                        const users: any = Users.filter(user => user.id != dilog.userId);
+                        const users: any = Users.filter(user => user.id != dilog.Id);
                         users.push(data);
                         setUsers(users);
                         alert("Edit succes")
@@ -176,12 +161,9 @@ function ShowUsersContainer() {
 
         // Load data
         useEffect(() => {
-                getUsersFirstTime()
-        }, []);
-
-        useEffect(() => {
                 getUsers()
         }, [pages.thisPage]);
+
 
 
         // Error and loading Pages
@@ -189,17 +171,17 @@ function ShowUsersContainer() {
         if (status.error) return <div>{status.errorMessage}</div>
 
         return <>
-                {/* Delete popup window */}
+
                 {
                         (dilog.openDelete) && <ConfirmDialog onClose={onClose} onConfirm={onDelete} title="Delete" text="Are you sure ?" />
                 }
-                {/* Edit popup window */}
+
                 {
-                        (dilog.openEdit) && <Dialog onClose={onClose} onConfirm={onDelete} title="  " >
+                        (dilog.openEdit) && <Dialog onClose={onClose}  title="  " >
                                 <UserForm values={user} setValues={setUser} submit={submitEdit} cancel={onClose} submitText={'Edit'} />
                         </Dialog>
                 }
-                {/* Table of Users */}
+
                 <div>
                         <table className="min-w-full ">
                                 <UserColumn Users={Users} onDelete={openDelete} onEdit={openEdit} />
