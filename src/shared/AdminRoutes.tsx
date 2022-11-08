@@ -13,7 +13,7 @@ class AdminRoutes extends React.Component {
         return (
             <Routes>
                 <Route path="Admins" element={<AdminsContainer />} />
-                <Route path="ShowUsers" element={<ShowUsersContainer />} />
+                <Route path="Users" element={<ShowUsersContainer />} />
                 <Route path="Advs" element={<AdvContainer />} />
                 <Route path="*" element={<ErrorPage errorMessage={"404 Page Not Found"} />} />
             </Routes>
