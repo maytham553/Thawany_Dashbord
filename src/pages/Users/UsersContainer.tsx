@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Endpoint } from '../../shared/Endpoint';
-import { AxiosFunctions, TokenConfiguration } from '../../shared/Request';
+import {  TokenConfiguration } from '../../shared/Request';
 import { Dilog, Pages, Status } from '../../shared/Interfaces';
 import { User } from './Shared/Interfaces';
 import axios from 'axios';
