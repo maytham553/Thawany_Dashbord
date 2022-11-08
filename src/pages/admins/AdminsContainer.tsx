@@ -8,6 +8,8 @@ import { Endpoint } from '../../shared/Endpoint';
 import { Dilog, Pages, Status } from '../../shared/Interfaces';
 import { TokenConfiguration } from '../../shared/Request';
 import { Table } from '../../shared/TailwindClasses';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import LoadingPage from '../LoadingPage/LoadingPage';
 import AdminForm from './shared/AdminForm';
 import { Admin } from './shared/Interfaces';
 import AdminColumn from './show/AdminColumn';
@@ -138,7 +140,6 @@ function AdminsContainer() {
         const openAdd = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                 setAdmin(defaultAdmin)
                 setDilog({ openDelete: false, openEdit: false, openAdd: true, Id: "" });
-                onClose()
         }
 
         const submitAdd = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -172,11 +173,8 @@ function AdminsContainer() {
         }, [pages.thisPage]);
 
 
-        if (status.loading) return <div>loading</div>
-        if (status.error) return <div>{status.errorMessage}</div>
-
-
-
+        if (status.loading) return <LoadingPage/>
+        if (status.error) return <ErrorPage errorMessage={ status.errorMessage} />
 
         return <div>
                 {

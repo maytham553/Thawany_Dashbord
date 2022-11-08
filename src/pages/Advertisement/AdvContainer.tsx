@@ -8,6 +8,8 @@ import { Endpoint } from "../../shared/Endpoint";
 import { Dilog, Pages, Status } from "../../shared/Interfaces";
 import { TokenConfiguration } from "../../shared/Request";
 import { Table } from "../../shared/TailwindClasses";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import LoadingPage from "../LoadingPage/LoadingPage";
 import AdvForm from "./Shared/AdvForm";
 import { Advertisement } from "./Shared/Interfaces";
 import AdvsColumn from "./Show/AdvsColumn";
@@ -95,7 +97,6 @@ function AdvContainer() {
     //Pagination functions
     const nextPage = () => {
         setPages({ totalPages: pages.totalPages, thisPage: pages.thisPage + 1, prevPage: pages.thisPage, nextPage: pages.thisPage + 2 });
-        getAdvs()
     }
     const prevPage = () => {
         setPages({ totalPages: pages.totalPages, thisPage: pages.thisPage - 1, prevPage: pages.thisPage - 2, nextPage: pages.thisPage });
@@ -173,8 +174,8 @@ function AdvContainer() {
 
 
 
-    if (status.loading) return <div>loading</div>
-    if (status.error) return <div>{status.errorMessage}</div>
+    if (status.loading) return <LoadingPage/>
+    if (status.error) return <ErrorPage errorMessage={ status.errorMessage} />
 
     return <>
         {

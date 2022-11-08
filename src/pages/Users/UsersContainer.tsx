@@ -10,6 +10,8 @@ import Dialog from '../../healperComponent/tailwindComponent/Dialog';
 import UserForm from './Shared/UserForm';
 import Pagination from '../../healperComponent/tailwindComponent/Pagination';
 import { Table } from '../../shared/TailwindClasses';
+import LoadingPage from '../LoadingPage/LoadingPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 
 
@@ -80,7 +82,6 @@ function ShowUsersContainer() {
 
         const nextPage = () => {
                 setPages({ totalPages: pages.totalPages, thisPage: pages.thisPage + 1, prevPage: pages.thisPage, nextPage: pages.thisPage + 2 });
-                getUsers()
         }
         const prevPage = () => {
                 setPages({ totalPages: pages.totalPages, thisPage: pages.thisPage - 1, prevPage: pages.thisPage - 2, nextPage: pages.thisPage });
@@ -105,6 +106,7 @@ function ShowUsersContainer() {
                 } catch (error) {
                         setStatus({ loading: false, error: true, success: false, errorMessage: String(error) })
                         setPages({ totalPages: 0, prevPage: 0, nextPage: 0, thisPage: 0 });
+                        console.log(error)
                 }
         }
     
@@ -168,8 +170,8 @@ function ShowUsersContainer() {
 
 
         // Error and loading Pages
-        if (status.loading) return <div>loading</div>
-        if (status.error) return <div>{status.errorMessage}</div>
+        if (status.loading) return <LoadingPage/>
+        if (status.error) return <ErrorPage errorMessage={ status.errorMessage} />
 
         return <>
 
