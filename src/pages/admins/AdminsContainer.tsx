@@ -7,6 +7,7 @@ import Pagination from '../../healperComponent/tailwindComponent/Pagination';
 import { Endpoint } from '../../shared/Endpoint';
 import { Dilog, Pages, Status } from '../../shared/Interfaces';
 import { TokenConfiguration } from '../../shared/Request';
+import { Table } from '../../shared/TailwindClasses';
 import AdminForm from './shared/AdminForm';
 import { Admin } from './shared/Interfaces';
 import AdminColumn from './show/AdminColumn';
@@ -194,7 +195,7 @@ function AdminsContainer() {
                 }
 
                 <div>
-                        <table className="min-w-full mb-20 ">
+                        <table className={Table.table}>
                                 <AdminColumn admins={admins} onDelete={openDelete} onEdit={openEdit} />
                         </table>
 

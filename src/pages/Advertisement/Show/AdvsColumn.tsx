@@ -1,6 +1,7 @@
 import { Advertisement } from "../Shared/Interfaces"
 import React from "react"
 import AdvRow from "./AdvRow";
+import { Table } from "../../../shared/TailwindClasses";
 // import UserRow from "./UserRow"
 
 interface Props {
@@ -10,18 +11,23 @@ interface Props {
 }
 function AdvsColumn(props: Props) {
     return <>
-        <thead className="bg-white border-b">
+        <thead className={Table.thead}>
             <tr>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Count</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Total</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Adv URL</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">URL Image</th>
+                <th scope="col" className={Table.th}>#</th>
+                <th scope="col" className={Table.th}>Count</th>
+                <th scope="col" className={Table.th}>Total</th>
+                <th scope="col" className={Table.th}>Adv URL</th>
+                <th scope="col" className={Table.th}>URL Image</th>
+                <th scope="col" className={Table.th}></th>
+                <th scope="col" className={Table.th}></th>
+
             </tr>
         </thead>
-        {props.advs.map((adv , index) => {
-            return <AdvRow Adv={adv} key={index} onDelete={props.onDelete} onEdit={props.onEdit} />
-        })}
+        <tbody>
+            {props.advs.map((adv, index) => {
+                return <AdvRow Adv={adv} key={index} onDelete={props.onDelete} onEdit={props.onEdit} />
+            })}
+        </tbody>
 
     </>
 

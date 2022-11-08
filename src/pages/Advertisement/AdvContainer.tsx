@@ -7,6 +7,7 @@ import Pagination from "../../healperComponent/tailwindComponent/Pagination";
 import { Endpoint } from "../../shared/Endpoint";
 import { Dilog, Pages, Status } from "../../shared/Interfaces";
 import { TokenConfiguration } from "../../shared/Request";
+import { Table } from "../../shared/TailwindClasses";
 import AdvForm from "./Shared/AdvForm";
 import { Advertisement } from "./Shared/Interfaces";
 import AdvsColumn from "./Show/AdvsColumn";
@@ -190,7 +191,7 @@ function AdvContainer() {
             </Dialog>
         }
         <div>
-            <table className="min-w-full ">
+            <table className={Table.table}>
                 <AdvsColumn advs={advs} onDelete={openDelete} onEdit={openEdit} />
             </table>
 

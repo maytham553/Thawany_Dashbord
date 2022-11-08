@@ -1,6 +1,7 @@
 import { Admin } from "../shared/Interfaces"
 import React from "react"
 import AdminRow from "./AdminRow";
+import { Table } from "../../../shared/TailwindClasses";
 // import UserRow from "./UserRow"
 
 interface Props {
@@ -12,20 +13,20 @@ interface Props {
 
 function AdvsColumn(props: Props) {
     return <>
-        <thead className="bg-gray-100">
+        <thead className={Table.thead}>
             <tr>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Name</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Phone</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Password</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">All Permission</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Add Users</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Allow Maps User</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Allow Notification</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Allow Thawany Cash</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">User Advert</th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"></th>
-                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"></th>
+                <th scope="col" className={Table.th}>#</th>
+                <th scope="col" className={Table.th}>Name</th>
+                <th scope="col" className={Table.th}>Phone</th>
+                <th scope="col" className={Table.th}>Password</th>
+                <th scope="col" className={Table.th}>All Permission</th>
+                <th scope="col" className={Table.th}>Add Users</th>
+                <th scope="col" className={Table.th}>Allow Maps User</th>
+                <th scope="col" className={Table.th}>Allow Notification</th>
+                <th scope="col" className={Table.th}>Allow Thawany Cash</th>
+                <th scope="col" className={Table.th}>User Advert</th>
+                <th scope="col" className={Table.th}></th>
+                <th scope="col" className={Table.th}></th>
             </tr>
         </thead>
         <tbody >

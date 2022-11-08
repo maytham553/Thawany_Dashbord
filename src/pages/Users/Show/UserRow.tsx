@@ -1,6 +1,7 @@
 import { User } from "../Shared/Interfaces"
 import React from "react"
 import { DangerButton, PrimaryButton } from "../../../healperComponent/tailwindComponent/HelperComponent";
+import { Table } from "../../../shared/TailwindClasses";
 
 interface Props {
     User: User
@@ -10,56 +11,56 @@ interface Props {
 
 function UserRow(props: Props) {
     const { User } = props;
-    return <tbody>
-        <tr className="bg-gray-100 border-b">
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+    return <>
+        <tr className={Table.tr}>
+            <td className={Table.td}>
                 {User.id}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.name}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.phone}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <img src={User.image} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.birthdate}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.countryCode}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.gender}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.tagId}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.tagScanned}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.views}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" defaultChecked={User.visibility} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.method}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {User.token}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <PrimaryButton id={User.id} className="btn" text={"Edit"} onClick={props.onEdit} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <DangerButton id={User.id} className="btn" text={"Delete"} onClick={props.onDelete} />
             </td>
         </tr>
 
-    </tbody>
+    </>
 
 }
 

@@ -9,6 +9,7 @@ import ConfirmDialog from '../../healperComponent/tailwindComponent/ConfirmDialo
 import Dialog from '../../healperComponent/tailwindComponent/Dialog';
 import UserForm from './Shared/UserForm';
 import Pagination from '../../healperComponent/tailwindComponent/Pagination';
+import { Table } from '../../shared/TailwindClasses';
 
 
 
@@ -183,12 +184,11 @@ function ShowUsersContainer() {
                 }
 
                 <div>
-                        <table className="min-w-full ">
+                        <table className={Table.table}>
                                 <UserColumn Users={Users} onDelete={openDelete} onEdit={openEdit} />
                         </table>
 
                         <Pagination thisPage={pages.thisPage} totalPages={pages.totalPages} goToPrevPage={prevPage} goToNextPage={nextPage} goToSpecificPages={specificPage} />
-
                 </div>
         </>
 }

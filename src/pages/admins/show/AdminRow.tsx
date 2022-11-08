@@ -1,6 +1,7 @@
 import { Admin } from "../shared/Interfaces"
 import React from "react"
 import { DangerButton, PrimaryButton } from "../../../healperComponent/tailwindComponent/HelperComponent";
+import { Table } from "../../../shared/TailwindClasses";
 
 interface Props {
     admin: Admin
@@ -11,42 +12,42 @@ interface Props {
 
 function UserRow(props: Props) {
     const { admin } = props;
-    return <><tr className=" border focus:bg-gray-500 odd:bg-white even:bg-gray-200">
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+    return <><tr className={Table.tr}>
+            <td className={Table.td}>
                 {admin.id}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {admin.name}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {admin.phone}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 {admin.password}
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" checked={admin.allPermission} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" checked={admin.addUsers} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" checked={admin.allowMapsUser} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" checked={admin.allowNotification} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" checked={admin.allowThawanyCash} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <input type="checkbox" checked={admin.userAdvert} />
             </td>
 
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <PrimaryButton id={admin.id} className="btn" text={"Edit"} onClick={props.onEdit} />
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <td className={Table.td}>
                 <DangerButton id={admin.id} className="btn" text={"Delete"} onClick={props.onDelete} />
             </td>
         </tr>
