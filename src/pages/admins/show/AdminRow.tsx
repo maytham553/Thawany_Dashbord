@@ -26,22 +26,22 @@ function UserRow(props: Props) {
                 {admin.password}
             </td>
             <td className={Table.td}>
-                <input type="checkbox" checked={admin.allPermission} />
+                <input type="checkbox" defaultChecked={admin.allPermission} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" checked={admin.addUsers} />
+                <input type="checkbox" defaultChecked={admin.addUsers} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" checked={admin.allowMapsUser} />
+                <input type="checkbox" defaultChecked={admin.allowMapsUser} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" checked={admin.allowNotification} />
+                <input type="checkbox" defaultChecked={admin.allowNotification} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" checked={admin.allowThawanyCash} />
+                <input type="checkbox" defaultChecked={admin.allowThawanyCash} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" checked={admin.userAdvert} />
+                <input type="checkbox"  defaultChecked={admin.userAdvert} />
             </td>
 
             <td className={Table.td}>
