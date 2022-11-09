@@ -4,6 +4,7 @@ import { taillwindClasses } from './TaillWindClasses';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
     label: string;
+    errorMessage?:string
 }
 
 
@@ -12,11 +13,13 @@ interface Form extends FormHTMLAttributes<HTMLFormElement> {
 }
 
 
-export const TextInput: FC<InputProps> = ({ name, label, className = " ", ...rest }) => {
+export const TextInput: FC<InputProps> = ({ name, label, className = " ", errorMessage, ...rest }) => {
+    // console.log(errorMessage?.props)
     return (
         <div className="mb-4" >
             <label htmlFor={name} className={taillwindClasses.labelText + " " + className}>{label}</label>
             <input type="text" id={name}  {...rest} className={taillwindClasses.inputText} /><br />
+            <div className="text-red-500 text-xs mt-1 w-64">{errorMessage}</div>
         </div>
     );
 };
