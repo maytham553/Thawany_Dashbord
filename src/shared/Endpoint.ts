@@ -2,6 +2,7 @@ interface IEndpoints {
         admins: {
                 get: string;
                 post: string;
+                login: string;
                 put: (id: string) => string;
                 getById: (id: string) => string;
                 delete: (id: string) => string;
@@ -63,6 +64,7 @@ export const Endpoint: IEndpoints = {
         admins: {
                 get: makeEndpoint("Admin"),
                 post: makeEndpoint("Admin"),
+                login: makeEndpoint("Admin/Login"),
                 put: (id: string) => makeEndpointWithData("Admin", id),
                 getById: (id: string) => makeEndpointWithData("Admin", id),
                 delete: (id: string) => makeEndpointWithData("Admin", id)

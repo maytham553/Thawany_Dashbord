@@ -1,4 +1,4 @@
-export default function getBase64(file:any, cb:(result:any)=>void) {
+export  function getBase64(file:any, cb:(result:any)=>void) {
     const  reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
@@ -7,5 +7,18 @@ export default function getBase64(file:any, cb:(result:any)=>void) {
     reader.onerror = function (error) {
         console.log('Error: ', error);
     };
+}
+
+
+export  function logout() {
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('name');
+    window.localStorage.removeItem('phone');
+    window.localStorage.removeItem('addUsers');
+    window.localStorage.removeItem('allPermission');
+    window.localStorage.removeItem('allowMapsUser');
+    window.localStorage.removeItem('allowNotification');
+    window.localStorage.removeItem('allowThawanyCash');
+    window.localStorage.removeItem('userAdvert');
 }
 
