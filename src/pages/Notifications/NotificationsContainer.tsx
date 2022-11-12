@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Endpoint } from '../../shared/Endpoint';
+import { TokenConfiguration } from '../../shared/Request';
 import { Notification } from "./Shared/Interfaces";
 import NotificationForm from './Shared/NotificationForm';
 
@@ -10,7 +13,7 @@ function NotificationContainer() {
     const [notification, setNotification] = useState<Notification>(
         {
             title: "",
-            message: ""
+            body: ""
         }
 
     );
@@ -20,20 +23,20 @@ function NotificationContainer() {
 
     const submitAdd = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        console.log(notification)
-        // try {
-        //         const data = await axios.put(
-        //                 Endpoint.users.put(user.id),
-        //                 user,
-        //                 new TokenConfiguration().config
-        //         )
-        //         const users: any = Users.filter(user => user.id != dilog.Id);
-        //         users.push(data);
-        //         setUsers(users);
-        //         alert("Edit succes")
-        // } catch (error) {
-        //         alert(error)
-        // }
+        try {
+            const data = await axios.post(
+                Endpoint.notification.post,
+                notification,
+                new TokenConfiguration().config
+            )
+            setNotification({
+                title: "",
+                body: ""
+            })
+            alert("notification sent")
+        } catch (error) {
+            alert(error)
+        }
     }
 
 
@@ -42,7 +45,7 @@ function NotificationContainer() {
 
 
     return <>
-        <NotificationForm values={notification} setValues={setNotification } submit={submitAdd} submitText={'Send'} />
+        <NotificationForm values={notification} setValues={setNotification} submit={submitAdd} submitText={'Send'} />
     </>
 }
 

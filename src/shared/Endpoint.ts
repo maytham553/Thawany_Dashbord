@@ -16,6 +16,9 @@ interface IEndpoints {
         file: {
                 post: string;
         };
+        notification: {
+                post: string;
+        },
         users: {
                 get: (pageNumber: number) => string;
                 post: string;
@@ -73,6 +76,9 @@ export const Endpoint: IEndpoints = {
         },
         file: {
                 post: makeEndpoint("File")
+        },
+        notification: {
+                post: makeEndpoint("Notification")
         },
         users: {
                 get: (pageNumber:number) =>  makeEndpointWithPage("User" ,pageNumber ),

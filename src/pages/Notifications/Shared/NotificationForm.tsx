@@ -29,9 +29,8 @@ function NotificationForm(props: Props) {
         return <>
                 <Form>
                         <TextInput name={"title"} label={"Title"} onChange={textHandler} value={values.title} placeholder="Title" errorMessage={simpleValidator.current.message('title', values.title, 'required')} />
-                        <TextInput name={"message"} label={"Message"} onChange={textHandler} value={values.message} placeholder="Message"  errorMessage={simpleValidator.current.message('message', values.message, 'required')} />
+                        <TextInput name={"body"} label={"Message"} onChange={textHandler} value={values.body} placeholder="Message"  errorMessage={simpleValidator.current.message('message', values.body, 'required')} />
                         <DangerButton text={props.submitText} onClick={InternalSubmit} />
-                        {/* <PrimaryButton onClick={props.cancel} text={submitText} />  */}
                 </Form>
         </>
 }
