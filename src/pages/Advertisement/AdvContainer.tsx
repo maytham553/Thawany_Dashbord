@@ -136,7 +136,6 @@ function AdvContainer() {
     }
 
 
-
     // Add Adv
     const openAdd = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setAdv(defaultAdv)
@@ -157,7 +156,7 @@ function AdvContainer() {
                 new TokenConfiguration().config
             )
             setAdvs(current => [data.data.data, ...current]);
-            alert("Edit succes")
+            alert("Add succes")
         } catch (error) {
             alert(error)
         }

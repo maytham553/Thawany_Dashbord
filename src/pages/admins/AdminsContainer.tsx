@@ -128,7 +128,7 @@ function AdminsContainer() {
                                 new TokenConfiguration().config
                         )
                         const adminsWithoutEditedOne: any = admins.filter(admin => admin.id != dilog.Id);
-                        setAdmins([data.data.data, ...adminsWithoutEditedOne]);
+                        setAdmins([admin, ...adminsWithoutEditedOne]);
                         alert("Edit succes")
                         onClose()
                 } catch (error) {
@@ -176,7 +176,7 @@ function AdminsContainer() {
         if (status.loading) return <LoadingPage/>
         if (status.error) return <ErrorPage errorMessage={ status.errorMessage} />
 
-        return <div>
+        return <>
                 {
                         (dilog.openDelete) && <ConfirmDialog onClose={onClose} onConfirm={onDelete} title="Delete" text="Are you sure ?" />
                 }
@@ -201,7 +201,7 @@ function AdminsContainer() {
                 </div>
                 <FloatingButton text={"+"} onClick={openAdd}/>
 
-        </div>
+        </>
 }
 
 export default AdminsContainer;

@@ -12,6 +12,8 @@ interface Props {
 
 function UserRow(props: Props) {
     const { admin } = props;
+
+    const onChangeCheckbox = ()=>{return 0}
     return <><tr className={Table.tr}>
             <td className={Table.td}>
                 {admin.id}
@@ -26,22 +28,22 @@ function UserRow(props: Props) {
                 {admin.password}
             </td>
             <td className={Table.td}>
-                <input type="checkbox" defaultChecked={admin.allPermission} />
+                <input type="checkbox" checked={admin.allPermission} onChange={onChangeCheckbox} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" defaultChecked={admin.addUsers} />
+                <input type="checkbox" checked={admin.addUsers} onChange={onChangeCheckbox} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" defaultChecked={admin.allowMapsUser} />
+                <input type="checkbox" checked={admin.allowMapsUser} onChange={onChangeCheckbox} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" defaultChecked={admin.allowNotification} />
+                <input type="checkbox" checked={admin.allowNotification} onChange={onChangeCheckbox} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox" defaultChecked={admin.allowThawanyCash} />
+                <input type="checkbox" checked={admin.allowThawanyCash} onChange={onChangeCheckbox} />
             </td>
             <td className={Table.td}>
-                <input type="checkbox"  defaultChecked={admin.userAdvert} />
+                <input type="checkbox"  checked={admin.userAdvert} onChange={onChangeCheckbox} />
             </td>
 
             <td className={Table.td}>
