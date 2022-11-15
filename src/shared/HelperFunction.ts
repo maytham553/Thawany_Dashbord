@@ -1,5 +1,7 @@
-export  function getBase64(file:any, cb:(result:any)=>void) {
-    const  reader = new FileReader();
+
+
+export function getBase64(file: any, cb: (result: any) => void) {
+    const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
         cb(reader.result)
@@ -9,8 +11,13 @@ export  function getBase64(file:any, cb:(result:any)=>void) {
     };
 }
 
-
-export  function logout() {
+export function refreshPage() {
+    window.location.reload();
+}
+export function cheackLogin() {
+   return  window.localStorage.getItem('token') ? true : false;
+}
+export function logout() {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('name');
     window.localStorage.removeItem('phone');
@@ -20,5 +27,6 @@ export  function logout() {
     window.localStorage.removeItem('allowNotification');
     window.localStorage.removeItem('allowThawanyCash');
     window.localStorage.removeItem('userAdvert');
+    window.location.reload();
 }
 
