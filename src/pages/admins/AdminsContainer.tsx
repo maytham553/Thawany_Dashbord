@@ -182,12 +182,12 @@ function AdminsContainer() {
                 }
 
                 {
-                        (dilog.openEdit) && <Dialog onClose={onClose} title="  " >
+                        (dilog.openEdit) && <Dialog onClose={onClose} title="Edit Admin  " >
                                 <AdminForm values={admin} setValues={setAdmin} submit={submitEdit} cancel={onClose} submitText={'Edit'} />
                         </Dialog>
                 }
                 {
-                        (dilog.openAdd) && <Dialog onClose={onClose} title="  " >
+                        (dilog.openAdd) && <Dialog onClose={onClose} title="Add Admin" >
                                 <AdminForm values={admin} setValues={setAdmin} submit={submitAdd} cancel={onClose} submitText={'Add'} />
                         </Dialog>
                 }
