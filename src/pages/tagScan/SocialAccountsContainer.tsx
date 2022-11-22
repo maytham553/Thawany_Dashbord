@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useAlert } from 'react-alert';
-import DialogContainer from '../../healperComponent/tailwindComponent/Dialog';
+import AppDialog from '../../healperComponent/AppDialog';
+import DialogContainer from '../../healperComponent/Dialog';
 import { addPrefixDependOnCategories } from '../../shared/HelperFunction';
 import { Dialog, SocialAccount, UserInformation } from './Interfaces';
 import SocialAccountsSquare from './SocialAccountsSquare';
@@ -45,9 +46,9 @@ function SocialAccountsContainer(props: Props) {
     }
     return <>
         {
-            squareScallTogle.get.open && <DialogContainer onClose={() => { squareScallTogle.set(0) }} title={popupSocialAccounts.category}>
+            squareScallTogle.get.open && <AppDialog onClose={() => { squareScallTogle.set(0) }} title={popupSocialAccounts.category}>
                 < SocialAccountsSquare socialAccountsWithCategory={popupSocialAccounts} isDailog={true} />
-            </DialogContainer>
+            </AppDialog>
         }
         <div className="flex flex-row  flex-[0.25] overflow-hidden  justify-center items-center bg-red-500 w-screen rounded-b-[100px]" >
             <div className="shadow-xl rounded-full border-4  border-x-red-600">

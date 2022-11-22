@@ -30,13 +30,13 @@ function SocialAccountsSquare(props: Props) {
                     const url = addPrefixDependOnCategories(socialAccount.url, socialAccount.type);
                     if (socialAccount.category === "games") {
                         return <button onClick={() => copy(socialAccount.url)} key={socialAccount.id} className="flex flex-col justify-center items-center basis-1/3 lg:basis-1/4  ">
-                            <img className={"w-16"} src={"./images/" + socialAccount.type + ".svg"} alt="socialApp icon" />
-                            <span className="text-sm lg:text-sm p-4 ">{socialAccount.label}</span>
+                            <img  className={"w-16 h-10"} src={"./images/" + socialAccount.type + ".svg"} alt="socialApp icon" />
+                            <span className="text-sm lg:text-sm p-4 text-white">{socialAccount.label}</span>
                         </button>
                     } else {
                         return <a href={url} target="blank" key={socialAccount.id} className="flex flex-col justify-center items-center basis-1/3 lg:basis-1/4  ">
-                            <img className={"w-16"} src={"./images/" + socialAccount.type + ".svg"} alt="socialApp icon" />
-                            <span className="text-sm lg:text-sm p-4 ">{socialAccount.label}</span>
+                            <img className={"w-16 h-16"} src={"./images/" + socialAccount.type + ".svg"} alt="socialApp icon" />
+                            <span className="text-sm lg:text-sm p-4 text-white ">{socialAccount.label}</span>
                         </a>
                     }
 
