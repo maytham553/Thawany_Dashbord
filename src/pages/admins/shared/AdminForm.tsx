@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useRef } from "react";
 import SimpleReactValidator from "simple-react-validator";
-import { CheckboxInput, Form, TextInput } from "../../../healperComponent/tailwindComponent/FormComponent";
-import { DangerButton, PrimaryButton } from "../../../healperComponent/tailwindComponent/HelperComponent";
+import { CheckboxInput, Form, TextInput } from "../../../healperComponent/FormComponent";
+import { DangerButton, PrimaryButton } from "../../../healperComponent/HelperComponent";
 import { Admin } from "./Interfaces";
 
 interface Props {

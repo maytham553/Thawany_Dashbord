@@ -1,6 +1,6 @@
 import { Advertisement } from "../Shared/Interfaces"
 import React from "react"
-import { DangerButton, PrimaryButton } from "../../../healperComponent/tailwindComponent/HelperComponent";
+import { DangerButton, PrimaryButton } from "../../../healperComponent/HelperComponent";
 import { Table } from "../../../shared/TailwindClasses";
 
 interface Props {

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { CheckboxInput, DateInput, Form, GenderInput, NumberInput, TextInput } from "../../../healperComponent/tailwindComponent/FormComponent";
-import { PrimaryButton } from "../../../healperComponent/tailwindComponent/HelperComponent";
+import { CheckboxInput, DateInput, Form, GenderInput, NumberInput, TextInput } from "../../../healperComponent/FormComponent";
+import { PrimaryButton } from "../../../healperComponent/HelperComponent";
 import { User } from "./Interfaces";
 
 interface Props {

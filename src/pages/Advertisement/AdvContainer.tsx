@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import ConfirmDialog from "../../healperComponent/tailwindComponent/ConfirmDialog";
-import Dialog from "../../healperComponent/tailwindComponent/Dialog";
-import { FloatingButton } from "../../healperComponent/tailwindComponent/HelperComponent";
-import Pagination from "../../healperComponent/tailwindComponent/Pagination";
+import ConfirmDialog from "../../healperComponent/ConfirmDialog";
+import Dialog from "../../healperComponent/Dialog";
+import { FloatingButton } from "../../healperComponent/HelperComponent";
+import Pagination from "../../healperComponent/Pagination";
 import { Endpoint } from "../../shared/Endpoint";
 import { Dilog, Pages, Status } from "../../shared/Interfaces";
 import { TokenConfiguration } from "../../shared/Request";
