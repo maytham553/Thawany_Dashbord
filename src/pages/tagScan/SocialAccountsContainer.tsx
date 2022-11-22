@@ -75,7 +75,7 @@ function SocialAccountsContainer(props: Props) {
                             </>
                             :
                             <>
-                                <a href={addPrefixDependOnCategories(userInformation.defaultAccount.url, userInformation.defaultAccount.type)} target="blank">
+                                <a href={addPrefixDependOnCategories(userInformation.defaultAccount.url, userInformation.defaultAccount.type)}  target="blank">
                                     <img className={"w-20 h-20 "} src={"./images/" + userInformation.defaultAccount.type + ".svg"} alt="default Account" />
                                 </a>
                                 <span className="text-l lg:text-lg font-bold   sm:p-4">Default Account</span>
@@ -91,7 +91,7 @@ function SocialAccountsContainer(props: Props) {
             <>
                 {
                     socialAccountsByCategory.map((socialAccounts, index) => <button
-                        className=" basis-1/2  sm:basis-1/4 md:basis-1/5  lg:basis-1/6   "
+                        className=" basis-1/4  sm:basis-1/4 md:basis-1/5  lg:basis-1/6   "
                         key={socialAccounts.category}
                         onClick={(e) => { e.preventDefault(); squareScallTogle.set(index) }}
                     >
@@ -102,8 +102,13 @@ function SocialAccountsContainer(props: Props) {
             </>
         </div>
 
-        <div className="flex   flex-[0.1]  overflow-hidden  justify-center bg-red-500 w-screen rounded-t-[100px] items-center " >
-
+        <div className="flex  gap-4   flex-[0.1]  overflow-hidden  justify-center bg-red-500 w-screen rounded-t-[100px] items-center " >
+            <a href="https://play.google.com/store/apps/details?id=com.tou.thawany_tag" target="blank">
+                <img src="./images/google-play.png" alt="googlePlay" className=" w-24 lg:w-32" />
+            </a>
+            <a href="https://apps.apple.com/us/app/thawany-tag/id1560503925" target="blank" className="overview-hidden" >
+                <img src="./images/app-store.png" alt="AppStore" className=" w-24 lg:w-32" />
+            </a>
         </div>
 
     </>

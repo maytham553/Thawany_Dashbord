@@ -46,13 +46,13 @@ function SocialAccountsSquare(props: Props) {
     } else {
         return <div className="flex flex-col  justify-center items-center w-full h-full gap-2  ">
 
-            <div className="flex  overflow-scroll w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32  flex-wrap bg-gray-200  rounded-3xl   justify-start items-start p-2">
+            <div className="flex  overflow-scroll w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32  flex-wrap bg-gray-200  rounded-3xl   justify-start items-start p-2">
                 {
                     socialAccounts.map((socialAccount) => <div className="basis-1/3 flex justify-center items-cesnter" key={socialAccount.id} > <img src={"./images/" + socialAccount.type + ".svg"} alt="socialApp icon" className="w-10 h-auto p-1" /></div>)
                 }
             </div>
 
-            <span className="text-lg  lg:text-lg  font-bold">{category}</span>
+            <span className="text-xs  sm:text-sm md:text-lg    font-bold">{category}</span>
         </div>
     }
 
