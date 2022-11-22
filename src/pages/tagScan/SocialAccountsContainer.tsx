@@ -41,7 +41,7 @@ function SocialAccountsContainer(props: Props) {
     const alert = useAlert()
     const copy = async (text: string) => {
         await navigator.clipboard.writeText(text);
-        alert.success("copied to your clipboard");
+        alert.success(text + " copied to your clipboard");
     }
     return <>
         {
@@ -63,14 +63,27 @@ function SocialAccountsContainer(props: Props) {
             </div>
 
             <div className="flex flex-col justify-center items-center   overflow-hidden pt-5 lg:pt-20 sm:pt-10">
-                {
-                    <>
-                        <a href={addPrefixDependOnCategories(userInformation.defaultAccount.url, userInformation.defaultAccount.type)} target="blank">
-                            <img className={"w-20 h-20 "} src={"./images/" + userInformation.defaultAccount.type + ".svg"} alt="default Account" />
-                        </a>
-                        <span className="text-l lg:text-lg font-bold   sm:p-4">Default Account</span>
-                    </>
-                }
+
+                <>
+                    {
+                        userInformation.defaultAccount.category === "games" ?
+                            <>
+                                <button onClick={() => { copy(userInformation.defaultAccount.category) }}>
+                                    <img className={"w-20 h-20 "} src={"./images/" + userInformation.defaultAccount.type + ".svg"} alt="default Account" />
+                                </button>
+                                <span className="text-l lg:text-lg font-bold   sm:p-4">Default Account</span>
+                            </>
+                            :
+                            <>
+                                <a href={addPrefixDependOnCategories(userInformation.defaultAccount.url, userInformation.defaultAccount.type)} target="blank">
+                                    <img className={"w-20 h-20 "} src={"./images/" + userInformation.defaultAccount.type + ".svg"} alt="default Account" />
+                                </a>
+                                <span className="text-l lg:text-lg font-bold   sm:p-4">Default Account</span>
+                            </>
+                    }
+
+                </>
+
             </div>
         </div>
 
