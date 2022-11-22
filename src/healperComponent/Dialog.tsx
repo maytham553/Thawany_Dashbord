@@ -1,6 +1,4 @@
 import React, { MouseEventHandler } from "react";
-import { DangerButton, PrimaryButton } from "./HelperComponent";
-
 interface Props {
     onClose: MouseEventHandler<HTMLButtonElement>;
     children: React.ReactNode;
@@ -12,7 +10,7 @@ function Dialog(props: Props) {
     const { onClose, children, title } = props;
     console.log(title)
     return (
-        <div className=" flex fixed inset-0 z-50 overflow-auto bg-neutral-900  bg-opacity-70	 ">
+        <div className=" flex fixed inset-0 z-50 overflow-auto bg-neutral-900  bg-opacity-70  ">
             <div className="relative p-8 bg-white   m-auto flex-col flex rounded-lg shadow gap-5 ">
                 <div className="flex justify-between items-center p-4 rounded-t border-b ">
                     <h3 className="text-lg  font-semibold text-gray-900 dark:text-white">
